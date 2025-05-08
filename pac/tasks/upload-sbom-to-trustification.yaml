@@ -256,6 +256,14 @@ spec:
 
         echo "Uploading SBOM to $bombastic_api_url (with id=$sbom_id)"
         # https://docs.trustification.dev/trustification/user/bombastic.html#publishing-an-sbom-doc
+        echo curl "${curl_opts[@]}" \
+          --retry-max-time "$retry_max_time" \
+          -H "authorization: $token_type $access_token" \
+          -H "transfer-encoding: chunked" \
+          -H "content-type: application/json" \
+          --data "@$supported_version_of_sbom" \
+          "$bombastic_api_url/api/v2/sbom?id=$sbom_id"
+          
         curl "${curl_opts[@]}" \
           --retry-max-time "$retry_max_time" \
           -H "authorization: $token_type $access_token" \
