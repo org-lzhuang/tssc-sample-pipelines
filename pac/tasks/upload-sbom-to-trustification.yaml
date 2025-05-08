@@ -232,6 +232,9 @@ spec:
             -d "grant_type=client_credentials" \
             "$token_endpoint"
         )"
+
+        echo "$token_response"
+        
         # https://www.rfc-editor.org/rfc/rfc6749.html#section-5.1
         access_token="$(jq -r .access_token <<< "$token_response")"
         token_type="$(jq -r .token_type <<< "$token_response")"
