@@ -265,7 +265,7 @@ spec:
           -H "transfer-encoding: chunked" \
           -H "content-type: application/json" \
           --data "@$supported_version_of_sbom" \
-          "$bombastic_api_url/api/v2/sbom"
+          "$bombastic_api_url/api/v1/sbom"
           
         curl "${curl_opts[@]}" \
           --retry-max-time "$retry_max_time" \
@@ -273,7 +273,7 @@ spec:
           -H "transfer-encoding: chunked" \
           -H "content-type: application/json" \
           --data "@$supported_version_of_sbom" \
-          "$bombastic_api_url/api/v2/sbom"
+          "$bombastic_api_url/api/v1/sbom"
       done
 
   - name: report
