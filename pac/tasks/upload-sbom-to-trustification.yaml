@@ -237,6 +237,7 @@ spec:
         
         # https://www.rfc-editor.org/rfc/rfc6749.html#section-5.1
         access_token="$(jq -r .access_token <<< "$token_response")"
+        echo "$access_token"
         token_type="$(jq -r .token_type <<< "$token_response")"
         expires_in="$(jq -r ".expires_in // empty" <<< "$token_response")"
 
